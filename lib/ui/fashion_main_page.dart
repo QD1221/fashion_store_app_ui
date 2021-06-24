@@ -34,11 +34,15 @@ class _FashionMainPageState extends State<FashionMainPage> {
                             children: [
                               IconButton(
                                   icon: Icon(Icons.arrow_back),
-                                  onPressed: () {}),
+                                  onPressed: () {
+
+                                  }),
                               Spacer(),
                               IconButton(
                                   icon: Icon(Icons.favorite_border),
-                                  onPressed: () {})
+                                  onPressed: () {
+
+                                  })
                             ],
                           )),
                       Positioned(
