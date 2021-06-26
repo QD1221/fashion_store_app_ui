@@ -38,7 +38,9 @@ class _FashionMainPageState extends State<FashionMainPage> {
                             children: [
                               IconButton(
                                   icon: Icon(Icons.arrow_back),
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  }),
                               Spacer(),
                               IconButton(
                                   icon: Icon(Icons.favorite_border),
@@ -48,11 +50,44 @@ class _FashionMainPageState extends State<FashionMainPage> {
                       Positioned(
                         child: Center(
                           child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(12)),
-                              height: MediaQuery.of(context).size.height / 3.2,
-                              width: 72),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12)),
+                            height: MediaQuery.of(context).size.height / 3.2,
+                            width: 72,
+                            child: Column(
+                              children: [
+                                Expanded(
+                                    child: Container(
+                                  margin: EdgeInsets.all(4),
+                                  decoration: BoxDecoration(
+                                      color: Colors.blue[300],
+                                      borderRadius: BorderRadius.circular(8)),
+                                )),
+                                Expanded(
+                                    child: Container(
+                                  margin: EdgeInsets.all(4),
+                                  decoration: BoxDecoration(
+                                      color: Colors.blue[300],
+                                      borderRadius: BorderRadius.circular(8)),
+                                )),
+                                Expanded(
+                                    child: Container(
+                                  margin: EdgeInsets.all(4),
+                                  decoration: BoxDecoration(
+                                      color: Colors.blue[300],
+                                      borderRadius: BorderRadius.circular(8)),
+                                )),
+                                Expanded(
+                                    child: Container(
+                                  margin: EdgeInsets.all(4),
+                                  decoration: BoxDecoration(
+                                      color: Colors.blue[300],
+                                      borderRadius: BorderRadius.circular(8)),
+                                )),
+                              ],
+                            ),
+                          ),
                         ),
                         right: 12,
                         top: 64,
@@ -161,22 +196,22 @@ class _FashionMainPageState extends State<FashionMainPage> {
                                             bottom: 0,
                                             child: CircleAvatar(
                                               backgroundColor:
-                                              Colors.lightGreen,
+                                                  Colors.lightGreen,
                                             ),
                                           ),
                                           _colorIndex == 1
                                               ? Positioned(
-                                            right: 0,
-                                            top: 0,
-                                            child: CircleAvatar(
-                                              radius: 8,
-                                              backgroundColor:
-                                              Colors.black,
-                                              child: Icon(Icons.check,
-                                                  color: Colors.white,
-                                                  size: 12),
-                                            ),
-                                          )
+                                                  right: 0,
+                                                  top: 0,
+                                                  child: CircleAvatar(
+                                                    radius: 8,
+                                                    backgroundColor:
+                                                        Colors.black,
+                                                    child: Icon(Icons.check,
+                                                        color: Colors.white,
+                                                        size: 12),
+                                                  ),
+                                                )
                                               : Container()
                                         ],
                                       ),
@@ -200,143 +235,149 @@ class _FashionMainPageState extends State<FashionMainPage> {
                                             top: 0,
                                             bottom: 0,
                                             child: CircleAvatar(
-                                              backgroundColor:
-                                              Colors.brown,
+                                              backgroundColor: Colors.brown,
                                             ),
                                           ),
                                           _colorIndex == 2
                                               ? Positioned(
-                                            right: 0,
-                                            top: 0,
-                                            child: CircleAvatar(
-                                              radius: 8,
-                                              backgroundColor:
-                                              Colors.black,
-                                              child: Icon(Icons.check,
-                                                  color: Colors.white,
-                                                  size: 12),
-                                            ),
-                                          )
+                                                  right: 0,
+                                                  top: 0,
+                                                  child: CircleAvatar(
+                                                    radius: 8,
+                                                    backgroundColor:
+                                                        Colors.black,
+                                                    child: Icon(Icons.check,
+                                                        color: Colors.white,
+                                                        size: 12),
+                                                  ),
+                                                )
                                               : Container()
                                         ],
                                       ),
                                     ),
                                   ),
-
                                 ],
                               )
                             ],
                           )),
                           Expanded(
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Size',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'Size',
-                                    style: TextStyle(
-                                        fontSize: 16, fontWeight: FontWeight.bold),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _sizeIndex = 0;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 48,
+                                      width: 48,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            left: 0,
+                                            right: 0,
+                                            top: 0,
+                                            bottom: 0,
+                                            child: CircleAvatar(
+                                              backgroundColor: _sizeIndex == 0
+                                                  ? Colors.black
+                                                  : Colors.grey[200],
+                                              child: Text(
+                                                'S',
+                                                style: TextStyle(
+                                                    color: _sizeIndex == 0
+                                                        ? Colors.white
+                                                        : Colors.black),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            _sizeIndex = 0;
-                                          });
-                                        },
-                                        child: Container(
-                                          height: 48,
-                                          width: 48,
-                                          child: Stack(
-                                            children: [
-                                              Positioned(
-                                                left: 0,
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: CircleAvatar(
-                                                  backgroundColor:
-                                                      _sizeIndex == 0 ?
-                                                  Colors.black : Colors.grey[200],
-                                                  child: Text('S', style: TextStyle(
-                                                    color: _sizeIndex == 0 ?
-                                                    Colors.white : Colors.black
-                                                  ),),
-                                                ),
+                                  SizedBox(width: 8),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _sizeIndex = 1;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 48,
+                                      width: 48,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            left: 0,
+                                            right: 0,
+                                            top: 0,
+                                            bottom: 0,
+                                            child: CircleAvatar(
+                                              backgroundColor: _sizeIndex == 1
+                                                  ? Colors.black
+                                                  : Colors.grey[200],
+                                              child: Text(
+                                                'M',
+                                                style: TextStyle(
+                                                    color: _sizeIndex == 1
+                                                        ? Colors.white
+                                                        : Colors.black),
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                      SizedBox(width: 8),
-                                      GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            _sizeIndex = 1;
-                                          });
-                                        },
-                                        child: Container(
-                                          height: 48,
-                                          width: 48,
-                                          child: Stack(
-                                            children: [
-                                              Positioned(
-                                                left: 0,
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: CircleAvatar(
-                                                  backgroundColor:
-                                                  _sizeIndex == 1 ?
-                                                  Colors.black : Colors.grey[200],
-                                                  child: Text('M', style: TextStyle(
-                                                      color: _sizeIndex == 1 ?
-                                                      Colors.white : Colors.black
-                                                  ),),
-                                                ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 8),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _sizeIndex = 2;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 48,
+                                      width: 48,
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            left: 0,
+                                            right: 0,
+                                            top: 0,
+                                            bottom: 0,
+                                            child: CircleAvatar(
+                                              backgroundColor: _sizeIndex == 2
+                                                  ? Colors.black
+                                                  : Colors.grey[200],
+                                              child: Text(
+                                                'L',
+                                                style: TextStyle(
+                                                    color: _sizeIndex == 2
+                                                        ? Colors.white
+                                                        : Colors.black),
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                      SizedBox(width: 8),
-                                      GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            _sizeIndex = 2;
-                                          });
-                                        },
-                                        child: Container(
-                                          height: 48,
-                                          width: 48,
-                                          child: Stack(
-                                            children: [
-                                              Positioned(
-                                                left: 0,
-                                                right: 0,
-                                                top: 0,
-                                                bottom: 0,
-                                                child: CircleAvatar(
-                                                  backgroundColor:
-                                                  _sizeIndex == 2 ?
-                                                  Colors.black : Colors.grey[200],
-                                                  child: Text('L', style: TextStyle(
-                                                      color: _sizeIndex == 2 ?
-                                                      Colors.white : Colors.black
-                                                  ),),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-
-                                    ],
-                                  )
+                                    ),
+                                  ),
                                 ],
-                              )),
+                              )
+                            ],
+                          )),
                         ],
                       ),
                     )
@@ -350,11 +391,11 @@ class _FashionMainPageState extends State<FashionMainPage> {
                 children: [
                   Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
                         GestureDetector(
                           onTap: () {
                             _count.value -= 1;
@@ -378,9 +419,10 @@ class _FashionMainPageState extends State<FashionMainPage> {
                               valueListenable: _count,
                               builder:
                                   (BuildContext context, value, Widget child) {
-                                return Text(value.toString(), style: TextStyle(
-                                  fontSize: 16
-                                ),);
+                                return Text(
+                                  value.toString(),
+                                  style: TextStyle(fontSize: 16),
+                                );
                               }),
                         ),
                         GestureDetector(
@@ -397,9 +439,9 @@ class _FashionMainPageState extends State<FashionMainPage> {
                             foregroundColor: Colors.black,
                           ),
                         ),
-                    ],
-                  ),
-                      )),
+                      ],
+                    ),
+                  )),
                   Expanded(
                       child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
