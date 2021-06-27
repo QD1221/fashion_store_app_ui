@@ -1,3 +1,4 @@
+import 'package:fashion_store_app_ui/mocks/shopping_bag_items.dart';
 import 'package:flutter/material.dart';
 
 class ShoppingBagPage extends StatefulWidget {
@@ -31,25 +32,124 @@ class _ShoppingBagPageState extends State<ShoppingBagPage> {
               IconButton(icon: Icon(Icons.mail_outline), onPressed: () {})
             ],
           ),
-          Expanded(child: Placeholder(), flex: 8),
+          Expanded(
+              child: ListView.builder(
+                  itemCount: shoppingBagItems.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 84,
+                            width: 84,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        '${shoppingBagItems[index].img}'),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  '${shoppingBagItems[index].title}',
+                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Text('\$${shoppingBagItems[index].price}', style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold
+                                ),),
+                                SizedBox(
+                                  height: 16,
+                                ),
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: 28,
+                                      width: 28,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.grey[200]),
+                                          shape: BoxShape.circle),
+                                      child: Center(
+                                        child: Icon(Icons.remove),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 16),
+                                      child: Text(
+                                          '${shoppingBagItems[index].count}'),
+                                    ),
+                                    Container(
+                                      height: 28,
+                                      width: 28,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors.grey[200]),
+                                          shape: BoxShape.circle),
+                                      child: Center(
+                                        child: Icon(Icons.add),
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                          Spacer(),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '${shoppingBagItems[index].size}',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey),
+                              ),
+                              SizedBox(height: 24),
+                              IconButton(
+                                  icon: Icon(
+                                    Icons.delete_outline,
+                                    color: Colors.red,
+                                  ),
+                                  onPressed: () {})
+                            ],
+                          )
+                        ],
+                      ),
+                    );
+                  }),
+              flex: 8),
           Expanded(
             child: Container(
                 margin: EdgeInsets.fromLTRB(8, 8, 8, 8),
                 child: Row(
                   children: [
-                    Expanded(child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: BorderRadius.circular(8)
-                      ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Promo Code'
+                    Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius: BorderRadius.circular(8)),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: 'Promo Code'),
+                          ),
                         ),
-                      ),
-                    ), flex: 6),
+                        flex: 6),
                     Expanded(
                       child: Container(
                         margin: EdgeInsets.fromLTRB(8, 8, 8, 8),
